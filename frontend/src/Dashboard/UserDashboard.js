@@ -5,7 +5,6 @@ import * as yup from 'yup';
 import { Container, Box, Typography, Avatar, Button, Card, CardContent, Grid, TextField, List, ListItem, ListItemText } from '@mui/material';
 import { LocationOn } from '@mui/icons-material';
 
-// Validation Schema with yup
 const validationSchema = yup.object({
   phone: yup.string().matches(/^[0-9]{10}$/, "Phone number must be 10 digits").required("Phone number is required"),
   email: yup.string().email("Enter a valid email").required("Email is required"),
@@ -30,7 +29,7 @@ const UserDashboard = () => {
 
   const onSubmit = data => {
     console.log("Form Submitted Data", data);
-    // Handle form submission
+    
   };
 
   return (
@@ -51,7 +50,7 @@ const UserDashboard = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2} marginBottom={2}>
-          {/* Phone number field with validation */}
+         
           <Grid item xs={12} sm={6}>
             <Controller
               name="phone"
@@ -69,7 +68,7 @@ const UserDashboard = () => {
             />
           </Grid>
 
-          {/* Email field with validation */}
+      
           <Grid item xs={12} sm={6}>
             <Controller
               name="email"
@@ -87,7 +86,7 @@ const UserDashboard = () => {
             />
           </Grid>
 
-          {/* Upload Resume section with validation */}
+       
           <Grid item xs={12}>
             <Controller
               name="resume"
@@ -115,7 +114,7 @@ const UserDashboard = () => {
             </Typography>
           </Grid>
 
-          {/* Add Photo section with validation */}
+         
           <Grid item xs={12} sm={6}>
             <Controller
               name="photo"
@@ -145,7 +144,7 @@ const UserDashboard = () => {
           </Grid>
         </Grid>
 
-        {/* Profile Actions */}
+      
         <Grid container spacing={2} marginBottom={2}>
           <Grid item xs={12}>
             <Box display="flex" alignItems="center" justifyContent="space-between" p={2} borderRadius={2} bgcolor="background.paper">
@@ -155,7 +154,6 @@ const UserDashboard = () => {
           </Grid>
         </Grid>
 
-        {/* Resume Information */}
         <Card variant="outlined" sx={{ marginBottom: 2 }}>
           <CardContent>
             <Typography variant="h6">Resume</Typography>
@@ -168,7 +166,7 @@ const UserDashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Resume Headline */}
+       
         <Card variant="outlined" sx={{ marginBottom: 2 }}>
           <CardContent>
             <Typography variant="h6">Resume headline</Typography>
@@ -179,7 +177,7 @@ const UserDashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Quick Links with Add Buttons */}
+       
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h6">Quick links</Typography>
@@ -195,7 +193,7 @@ const UserDashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Submit Button */}
+    
         <Box mt={3}>
           <Button type="submit" variant="contained" color="primary" fullWidth>Submit Profile</Button>
         </Box>

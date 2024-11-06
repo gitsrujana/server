@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Container,
   Typography,
@@ -15,19 +15,19 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
-} from '@mui/material';
-import axios from 'axios';
+} from "@mui/material";
+import axios from "axios";
 
 const EmployerJobPost = () => {
   const [formData, setFormData] = useState({
-    jobTitle: '',
-    jobLocation: '',
-    openings: '',
-    experienceLevel: '',
-    minSalary: '',
-    maxSalary: '',
-    bonus: 'No',
-    jobDescription: '',
+    jobTitle: "",
+    jobLocation: "",
+    openings: "",
+    experienceLevel: "",
+    minSalary: "",
+    maxSalary: "",
+    bonus: "No",
+    jobDescription: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -39,16 +39,19 @@ const EmployerJobPost = () => {
     });
     setErrors({
       ...errors,
-      [name]: '',
+      [name]: "",
     });
   };
 
   const validateForm = () => {
     let formErrors = {};
-    if (!formData.jobTitle) formErrors.jobTitle = 'Job Title is required';
-    if (!formData.jobLocation) formErrors.jobLocation = 'Job Location is required';
-    if (!formData.openings) formErrors.openings = 'Number of Openings is required';
-    if (!formData.jobDescription) formErrors.jobDescription = 'Job Description is required';
+    if (!formData.jobTitle) formErrors.jobTitle = "Job Title is required";
+    if (!formData.jobLocation)
+      formErrors.jobLocation = "Job Location is required";
+    if (!formData.openings)
+      formErrors.openings = "Number of Openings is required";
+    if (!formData.jobDescription)
+      formErrors.jobDescription = "Job Description is required";
     setErrors(formErrors);
     return Object.keys(formErrors).length === 0;
   };
@@ -68,18 +71,25 @@ const EmployerJobPost = () => {
     }
   };
 
-
-
-
   return (
     <Container maxWidth="md">
-      <Box sx={{ backgroundColor: '#003366', color: '#fff', p: 3, borderRadius: 1, mb: 4 }}>
+      <Box
+        sx={{
+          backgroundColor: "#003366",
+          color: "#fff",
+          p: 3,
+          borderRadius: 1,
+          mb: 4,
+        }}
+      >
         <Typography variant="h4" align="center" gutterBottom>
           Post Your Job in Minutes!
         </Typography>
         <Typography variant="body1" align="center">
-          Instant visibility to top talent across industries<br />
-          Unlimited direct calls from qualified applicants<br />
+          Instant visibility to top talent across industries
+          <br />
+          Unlimited direct calls from qualified applicants
+          <br />
           Access to 35 million+ candidates for your ideal hire
         </Typography>
         <Box textAlign="center" mt={2}>
@@ -89,7 +99,7 @@ const EmployerJobPost = () => {
         </Box>
       </Box>
 
-      <Typography variant="h6" gutterBottom textAlign='start'>
+      <Typography variant="h6" gutterBottom textAlign="start">
         Basic Job Details
       </Typography>
       <Card sx={{ mb: 4 }}>
@@ -118,7 +128,6 @@ const EmployerJobPost = () => {
                   onChange={handleChange}
                   required
                   fullWidth
-                 
                 >
                   <MenuItem value="Mumbai">Mumbai</MenuItem>
                   <MenuItem value="Delhi">Delhi</MenuItem>
@@ -151,30 +160,56 @@ const EmployerJobPost = () => {
         </CardContent>
       </Card>
 
-      <Typography variant="h6" gutterBottom textAlign='start'>
+      <Typography variant="h6" gutterBottom textAlign="start">
         Candidate Requirement
       </Typography>
       <Card>
         <CardContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="body1" textAlign='start'>Total Experience of Candidate</Typography>
+              <Typography variant="body1" textAlign="start">
+                Total Experience of Candidate
+              </Typography>
               <Box display="flex" gap={2} mt={1}>
                 <Button
-                  variant={formData.experienceLevel === 'Any' ? 'contained' : 'outlined'}
-                  onClick={() => setFormData({ ...formData, experienceLevel: 'Any' })}
+                  variant={
+                    formData.experienceLevel === "Any"
+                      ? "contained"
+                      : "outlined"
+                  }
+                  onClick={() =>
+                    setFormData({ ...formData, experienceLevel: "Any" })
+                  }
                 >
                   Any
                 </Button>
                 <Button
-                  variant={formData.experienceLevel === 'Freshers Only' ? 'contained' : 'outlined'}
-                  onClick={() => setFormData({ ...formData, experienceLevel: 'Freshers Only' })}
+                  variant={
+                    formData.experienceLevel === "Freshers Only"
+                      ? "contained"
+                      : "outlined"
+                  }
+                  onClick={() =>
+                    setFormData({
+                      ...formData,
+                      experienceLevel: "Freshers Only",
+                    })
+                  }
                 >
                   Freshers Only
                 </Button>
                 <Button
-                  variant={formData.experienceLevel === 'Experienced only' ? 'contained' : 'outlined'}
-                  onClick={() => setFormData({ ...formData, experienceLevel: 'Experienced only' })}
+                  variant={
+                    formData.experienceLevel === "Experienced only"
+                      ? "contained"
+                      : "outlined"
+                  }
+                  onClick={() =>
+                    setFormData({
+                      ...formData,
+                      experienceLevel: "Experienced only",
+                    })
+                  }
                 >
                   Experienced only
                 </Button>
@@ -205,7 +240,9 @@ const EmployerJobPost = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Typography variant="body1" textAlign='start'>Do you offer a bonus in addition to monthly salary?</Typography>
+              <Typography variant="body1" textAlign="start">
+                Do you offer a bonus in addition to monthly salary?
+              </Typography>
               <RadioGroup
                 row
                 name="bonus"
